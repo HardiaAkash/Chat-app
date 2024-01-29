@@ -21,7 +21,7 @@ export const Home = () => {
 
   }])
   const [typing, setTyping] = useState(false)
-  const [limit, setLimit] = useState(2)
+  const [limit, setLimit] = useState(10)
   const [chatLike, setChatLike] = useState("Explain like 10 year of experience in cybersecurity")
   const openai = new OpenAI({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -87,6 +87,8 @@ export const Home = () => {
       setTyping(false)
     }).catch((error) => {
       console.error(error);
+      setTyping(false)
+      
     });
   }
 
